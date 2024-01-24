@@ -2,13 +2,17 @@ package org.dna;
 
 import org.jruby.embed.ScriptingContainer;
 
+import java.lang.management.ManagementFactory;
+import java.util.List;
+
 
 public class App {
 
     public static void main(String[] args) {
         String javaVersion = System.getProperty("java.version");
-        String version = javaVersion;
         System.out.println( "Running JRuby embedded interpreter in Java version: " +  javaVersion);
+        List<String> jvmArgs = ManagementFactory.getRuntimeMXBean().getInputArguments();
+        System.out.println("Running with JVM args: " + jvmArgs);
         //Ruby ruby = Ruby.getGlobalRuntime();
         ScriptingContainer ruby = new ScriptingContainer();
 

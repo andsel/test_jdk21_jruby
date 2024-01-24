@@ -37,6 +37,7 @@ import org.jruby.Ruby
 import org.jruby.embed.ScriptingContainer
 
 void runOffendingRubyScript() {
+    println "Running with System props: ${System.getProperties()}"
 	def jruby = new ScriptingContainer()
     try {
         jruby.runScriptlet("""
